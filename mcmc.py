@@ -46,6 +46,7 @@ transition_probability_matrix = [
     [0, 0.15515, 0.4091, 0.43575]   # state 4
 ]
 
+# put into pandas dataframe to format into rows and columns
 df = pd.DataFrame(transition_probability_matrix, index=["S1", "S2", "S3", "S4"], columns=["S1", "S2", "S3", "S4"])
 
 print("Part B. The transition probability matrix")
@@ -57,6 +58,7 @@ print("\nPart C. The probability for the query P(C|-s,w)")
 print(f"Exact probability: <{p.loc[True]:.4f}, {p.loc[False]:.4f}>")
 
 true_state = {0, 1}
+# iterate for each simulation 10 ^ k
 for k in [3, 4, 5, 6]:
     n = 10 ** k
     state = rand.randint(0,3)
